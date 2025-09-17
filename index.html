@@ -7,18 +7,7 @@
     <meta name="description" content="5 students, 1 mission — follow our hackathon journey." />
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root{ --accent1: linear-gradient(90deg,#7c3aed,#06b6d4); }
-        .glow{
-            background: linear-gradient(90deg,#06b6d4,#7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent;
-        }
-        .card-hover{ transition: transform .28s ease, box-shadow .28s ease; }
-        .card-hover:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 12px 30px rgba(15,23,42,0.15); }
-        .pulse-cta{ animation: pulse 2.2s infinite; }
-        @keyframes pulse{ 0%{ transform: scale(1); }50%{ transform: scale(1.02); }100%{ transform: scale(1);} }
-        .reveal{ opacity:0; transform: translateY(12px); transition: all .6s ease; }
-        .reveal.visible{ opacity:1; transform: translateY(0); }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 <body class="bg-gray-900 text-gray-100 antialiased leading-relaxed">
@@ -56,7 +45,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="menu" class="hidden md:hidden px-4 pb-4 bg-black bg-opacity-90">
+        <div id="menu" class=" px-4 pb-4 bg-black bg-opacity-90">
             <a href="#home" class="block py-2 text-white hover:text-indigo-400">Home</a>
             <a href="#about" class="block py-2 text-white hover:text-indigo-400">About</a>
             <a href="#journey" class="block py-2 text-white hover:text-indigo-400">Journey</a>
@@ -220,88 +209,5 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script>
-    document.getElementById('year').innerText = new Date().getFullYear();
+<script src="script.js"></script>
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', ()=>{ menu.classList.toggle('hidden'); });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold: .12});
-    reveals.forEach(r=>io.observe(r));
-
-    // Countdown
-    const target = new Date('2025-10-15T09:00:00');
-    const cdEl = document.getElementById('countdown');
-    function updateCountdown(){
-        const now = new Date();
-        const diff = target - now;
-        if(diff <= 0){ cdEl.innerText = 'Live — Follow our updates!'; return; }
-        const d = Math.floor(diff / (1000*60*60*24));
-        const h = Math.floor((diff/(1000*60*60))%24);
-        const m = Math.floor((diff/(1000*60))%60);
-        const s = Math.floor((diff/1000)%60);
-        cdEl.innerText = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    }
-    updateCountdown(); setInterval(updateCountdown,1000);
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', e=>{
-            e.preventDefault();
-</script>
-
-<!-- SCRIPTS -->
-<script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', ()=>{
-        menu.classList.toggle('hidden');
-    });
-
-    // Close menu on link click (optional)
-    document.querySelectorAll('#menu a').forEach(link => {
-        link.addEventListener('click', () => menu.classList.add('hidden'));
-    });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold: .12});
-    reveals.forEach(r=>io.observe(r));
-
-    // Countdown
-    const target = new Date('2025-10-15T09:00:00');
-    const cdEl = document.getElementById('countdown');
-    function updateCountdown(){
-        const now = new Date();
-        const diff = target - now;
-        if(diff <= 0){ cdEl.innerText = 'Live — Follow our updates!'; return; }
-        const d = Math.floor(diff / (1000*60*60*24));
-        const h = Math.floor((diff/(1000*60*60))%24);
-        const m = Math.floor((diff/(1000*60))%60);
-        const s = Math.floor((diff/1000)%60);
-        cdEl.innerText = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    }
-    updateCountdown(); setInterval(updateCountdown,1000);
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
-        a.addEventListener('click', e=>{
-            e.preventDefault();
-            const id = a.getAttribute('href');
-            if(id && document.querySelector(id)){
-                document.querySelector(id).scrollIntoView({behavior:'smooth'});
-            }
-        });
-    });
-</script>
