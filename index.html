@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>6 Minds — Hack the Future</title>
+    <meta name="description" content="5 students, 1 mission — follow our hackathon journey." />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root{ --accent1: linear-gradient(90deg,#7c3aed,#06b6d4); }
+        .glow{
+            background: linear-gradient(90deg,#06b6d4,#7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .card-hover{ transition: transform .28s ease, box-shadow .28s ease; }
+        .card-hover:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 12px 30px rgba(15,23,42,0.15); }
+        .pulse-cta{ animation: pulse 2.2s infinite; }
+        @keyframes pulse{ 0%{ transform: scale(1); }50%{ transform: scale(1.02); }100%{ transform: scale(1);} }
+        .reveal{ opacity:0; transform: translateY(12px); transition: all .6s ease; }
+        .reveal.visible{ opacity:1; transform: translateY(0); }
+    </style>
+
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased leading-relaxed">
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-black/30">
+    <nav class="fixed w-full z-50 bg-black bg-opacity-70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 text-2xl font-bold text-white">
+                    SparkStudios
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 text-white font-medium">
+                    <a href="#home" class="hover:text-indigo-400">Home</a>
+                    <a href="#about" class="hover:text-indigo-400">About</a>
+                    <a href="#journey" class="hover:text-indigo-400">Journey</a>
+                    <a href="#blog" class="hover:text-indigo-400">Blog</a>
+                    <a href="#hype" class="hover:text-indigo-400">Hype</a>
+                    <a href="#contact" class="hover:text-indigo-400">Contact</a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <!-- Hamburger Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="menu" class="hidden md:hidden px-4 pb-4 bg-black bg-opacity-90">
+            <a href="#home" class="block py-2 text-white hover:text-indigo-400">Home</a>
+            <a href="#about" class="block py-2 text-white hover:text-indigo-400">About</a>
+            <a href="#journey" class="block py-2 text-white hover:text-indigo-400">Journey</a>
+            <a href="#blog" class="block py-2 text-white hover:text-indigo-400">Blog</a>
+            <a href="#hype" class="block py-2 text-white hover:text-indigo-400">Hype</a>
+            <a href="#contact" class="block py-2 text-white hover:text-indigo-400">Contact</a>
+        </div>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+<section id="hero" class="container mx-auto text-center px-4 py-16 md:py-28">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight mb-4 glow">6 Minds. 1 Mission. <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-400">Hack the Future.</span></h1>
+        <p class="text-gray-300 mb-6 text-sm md:text-base">We are a team of 6 students building something wild at the upcoming hackathon. Follow our prep, projects, and live updates — join the hype.</p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div class="bg-black/40 border border-white/6 rounded-xl px-4 py-3 w-full sm:w-64">
+                <div class="text-xs text-gray-400">Countdown to hackathon</div>
+                <div id="countdown" class="text-lg md:text-2xl font-semibold mt-2">00d 00h 00m 00s</div>
+            </div>
+            <a href="https://www.instagram.com/sparkstudios.in/?utm_source=qr&igsh=MXBubHFsNTQydmpnaA%3D%3D#" class="inline-block px-5 py-3 rounded-lg text-black bg-gradient-to-r from-purple-500 to-cyan-400 font-semibold shadow-lg pulse-cta w-full sm:w-auto text-center">Follow Our Journey</a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-2">
+            <div class="h-2 rounded bg-gradient-to-r from-purple-600 to-cyan-400"></div>
+            <div class="h-2 rounded bg-gradient-to-r from-pink-500 to-yellow-400"></div>
+            <div class="h-2 rounded bg-gradient-to-r from-green-400 to-blue-400"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="container mx-auto py-12 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">About The Team</h2>
+    <p class="text-gray-400 mb-6 text-sm md:text-base">Five passionate students bringing diverse skills — design, backend, frontend, ML, and product. Swipe to meet the team.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="bg-gray-800 rounded-xl p-4 text-center card-hover reveal">
+            <img src="assets/JAYESH.png"
+                 alt="Developer Jayesh"
+                 class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full object-cover border-2 border-purple-500 shadow-lg" />
+            <h3 class="mt-4 font-semibold">Developer Jayesh</h3>
+            <p class="text-xs md:text-sm text-gray-400">• Full Stack Developer</p>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl p-4 text-center card-hover reveal">
+            <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center text-xl md:text-2xl font-bold">B</div>
+            <h3 class="mt-4 font-semibold">Developer Parv </h3>
+            <p class="text-xs md:text-sm text-gray-400">• Front End • AI </p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 text-center card-hover reveal">
+            <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center text-xl md:text-2xl font-bold">C</div>
+            <h3 class="mt-4 font-semibold">Developer Aashi</h3>
+            <p class="text-xs md:text-sm text-gray-400">• Front End </p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 text-center card-hover reveal">
+            <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center text-xl md:text-2xl font-bold">D</div>
+            <h3 class="mt-4 font-semibold">Developer Pragya</h3>
+            <p class="text-xs md:text-sm text-gray-400">• Documentation • PPT</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 text-center card-hover reveal">
+            <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center text-xl md:text-2xl font-bold">E</div>
+            <h3 class="mt-4 font-semibold">Developer Sarthak</h3>
+            <p class="text-xs md:text-sm text-gray-400">• PPT • Social Media</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 text-center card-hover reveal">
+            <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center text-xl md:text-2xl font-bold">E</div>
+            <h3 class="mt-4 font-semibold">Developer Natansh</h3>
+            <p class="text-xs md:text-sm text-gray-400">• PPT</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="container mx-auto py-12 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Hackathon Journey</h2>
+    <p class="text-gray-400 mb-6 text-sm md:text-base">Follow our timeline from ideation to final demo — with updates as we build.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-gray-800 rounded-xl p-6 card-hover reveal">
+            <div class="text-xs md:text-sm text-gray-400">Week -3</div>
+            <h3 class="mt-2 font-semibold">Ideation + Research</h3>
+            <p class="text-gray-300 mt-2 text-sm md:text-base">Brainstormed ideas, validated problem, and chose the winning idea to build.</p>
+        </article>
+        <article class="bg-gray-800 rounded-xl p-6 card-hover reveal">
+            <div class="text-xs md:text-sm text-gray-400">Week -2</div>
+            <h3 class="mt-2 font-semibold">MVP & Prototyping</h3>
+            <p class="text-gray-300 mt-2 text-sm md:text-base">Built the core flows, created wireframes and a clickable prototype.</p>
+        </article>
+        <article class="bg-gray-800 rounded-xl p-6 card-hover reveal">
+            <div class="text-xs md:text-sm text-gray-400">Week -1</div>
+            <h3 class="mt-2 font-semibold">Final Build & Testing</h3>
+            <p class="text-gray-300 mt-2 text-sm md:text-base">Polished UI, integrated backend, and stress-tested the demo for the pitch.</p>
+        </article>
+    </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="insta" class="container mx-auto py-12 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Live Instagram</h2>
+    <p class="text-gray-400 mb-6 text-sm md:text-base">Our latest posts — click to open on Instagram.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        <div class="h-24 sm:h-32 rounded-lg bg-gradient-to-tr from-purple-700 to-cyan-400"></div>
+        <div class="h-24 sm:h-32 rounded-lg bg-gradient-to-tr from-pink-600 to-yellow-400"></div>
+        <div class="h-24 sm:h-32 rounded-lg bg-gradient-to-tr from-green-400 to-blue-500"></div>
+        <div class="h-24 sm:h-32 rounded-lg bg-gradient-to-tr from-indigo-600 to-fuchsia-500"></div>
+        <div class="h-24 sm:h-32 rounded-lg bg-gradient-to-tr from-rose-500 to-orange-400"></div>
+        <div class="h-24 sm:h-32 rounded-lg bg-gradient-to-tr from-lime-400 to-sky-500"></div>
+    </div>
+</section>
+
+<!-- BLOG / UPDATES -->
+<section id="blog" class="container mx-auto py-12 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Hackathon Chronicles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-gray-800 rounded-xl p-6 card-hover reveal">
+            <h3 class="font-semibold">Milestone: Prototype Complete</h3>
+            <div class="text-xs text-gray-400 mt-2">Aug 25, 2025</div>
+            <p class="mt-3 text-gray-300 text-sm md:text-base">We finished the first working prototype. Demo-ready. Next: polishing and pitch practice.</p>
+        </article>
+        <article class="bg-gray-800 rounded-xl p-6 card-hover reveal">
+            <h3 class="font-semibold">API Integration Done</h3>
+            <div class="text-xs text-gray-400 mt-2">Sep 01, 2025</div>
+            <p class="mt-3 text-gray-300 text-sm md:text-base">Integrated the backend APIs and implemented auth flows for demo users.</p>
+        </article>
+        <article class="bg-gray-800 rounded-xl p-6 card-hover reveal">
+            <h3 class="font-semibold">Pitch Deck Ready</h3>
+            <div class="text-xs text-gray-400 mt-2">Sep 08, 2025</div>
+            <p class="mt-3 text-gray-300 text-sm md:text-base">Slide deck and demo script are ready. Time to rehearse with the team.</p>
+        </article>
+    </div>
+</section>
+
+<!-- HYPE -->
+<section id="hype" class="container mx-auto py-12 px-4 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Get Hyped</h2>
+    <div class="max-w-3xl mx-auto">
+        <blockquote class="text-base md:text-xl italic mb-6 reveal">“Creativity is the only way to survive the future — we’re building it, one sprint at a time.”</blockquote>
+        <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-black/60 reveal">
+            <iframe class="w-full h-48 md:h-64" src="https://www.youtube.com/embed/VIDEO_ID" title="Hype Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="container mx-auto py-12 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+        <div>
+            <h3 class="text-xl md:text-2xl font-bold">Connect & Support</h3>
+            <p class="text-gray-400 text-sm md:text-base">Follow our Instagram for live stories and behind-the-scenes. DM to collaborate or sponsor.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <a href="https://www.instagram.com/sparkstudios.in/?utm_source=qr&igsh=MXBubHFsNTQydmpnaA%3D%3D#" target="_blank" class="px-4 py-2 rounded-lg bg-white text-black font-semibold text-center w-full sm:w-auto">Instagram</a>
+            <a href="mailto:jayesh.patil0627@gmail.com" class="px-4 py-2 rounded-lg border border-white/10 text-center w-full sm:w-auto">Email Us</a>
+        </div>
+        <div class="text-xs md:text-sm text-gray-500">© <span id="year"></span> 6 Minds — Hack the Future</div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', ()=>{ menu.classList.toggle('hidden'); });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: .12});
+    reveals.forEach(r=>io.observe(r));
+
+    // Countdown
+    const target = new Date('2025-10-15T09:00:00');
+    const cdEl = document.getElementById('countdown');
+    function updateCountdown(){
+        const now = new Date();
+        const diff = target - now;
+        if(diff <= 0){ cdEl.innerText = 'Live — Follow our updates!'; return; }
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff/(1000*60*60))%24);
+        const m = Math.floor((diff/(1000*60))%60);
+        const s = Math.floor((diff/1000)%60);
+        cdEl.innerText = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    }
+    updateCountdown(); setInterval(updateCountdown,1000);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+            e.preventDefault();
+</script>
+
+<!-- SCRIPTS -->
+<script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', ()=>{
+        menu.classList.toggle('hidden');
+    });
+
+    // Close menu on link click (optional)
+    document.querySelectorAll('#menu a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: .12});
+    reveals.forEach(r=>io.observe(r));
+
+    // Countdown
+    const target = new Date('2025-10-15T09:00:00');
+    const cdEl = document.getElementById('countdown');
+    function updateCountdown(){
+        const now = new Date();
+        const diff = target - now;
+        if(diff <= 0){ cdEl.innerText = 'Live — Follow our updates!'; return; }
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff/(1000*60*60))%24);
+        const m = Math.floor((diff/(1000*60))%60);
+        const s = Math.floor((diff/1000)%60);
+        cdEl.innerText = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    }
+    updateCountdown(); setInterval(updateCountdown,1000);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+            e.preventDefault();
+            const id = a.getAttribute('href');
+            if(id && document.querySelector(id)){
+                document.querySelector(id).scrollIntoView({behavior:'smooth'});
+            }
+        });
+    });
+</script>
